@@ -1,7 +1,8 @@
 //Assign variables to 
 
-const restartButton = document.querySelector("#button");
-const boxes = document.querySelectorAll(".box");
+const boxes = Array.from(document.querySelectorAll(".box"))
+const restartButton = document.querySelector("#restart-button");
+const boxClicked = document.querySelectorAll(".box");
 const winningCombinations = [
     [0, 1, 2]
     [3, 4, 5]
@@ -15,34 +16,27 @@ const winningCombinations = [
 
 //This line of code creates an array of 9 placeholders. An array of empty strings
 let choice = ["", "", "", "", "", "", "", "", "",]
+let currentPlayer = "X"
 
 //Functions that will be needed
-const startingGame{
+// const startingGame
 
-}
+// const handleClickOnBox
 
-const handleClickOnBox{
+// const updateBox
 
-}
+// const swapPlayer
 
-const updateBox{
-
-}
-
-const swapPlayer{
-
-}
-
-const checkWinner{
-
-}
+// const checkWinner
 
 const handleRestart = () =>{
     choice = ["", "", "", "", "", "", "", "",];
-    boxes.forEach(box => box.innerText = "");
+    boxClicked.forEach(box => box.innerText = "");
 }
     
 
 //Add an event listener
 
 restartButton.addEventListener("click,", handleRestart)
+
+boxClicked.addEventListener("click", handleClickOnBox)

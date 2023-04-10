@@ -26,7 +26,7 @@
   cursor: pointer;
 }
 
-#button {
+#restart-button {
   background-color: lightgrey;
   color: black;
   padding: 16px 40px;
@@ -37,7 +37,7 @@
   margin: 30px;
 }
 
-#button:hover {
+#restart-button:hover {
   background-color: royalblue;
   color: gold;
 }
