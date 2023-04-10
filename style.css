@@ -1,3 +1,7 @@
+body {
+  background: linear-gradient(90deg, gold, royalblue);
+}
+
 .main-container {
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
