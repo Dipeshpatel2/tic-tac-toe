@@ -2,6 +2,8 @@
 const boxes = document.querySelectorAll(".box");
 const restartButton = document.querySelector("#restart-button");
 
+const xMoves = [];
+const oMoves = [];
 const winningSequence = [
   [0, 1, 2],
   [3, 4, 5],
@@ -14,7 +16,7 @@ const winningSequence = [
 ];
 
 //This line of code creates an array of 9 placeholders. An array of empty strings
-let choice = [""] * 9;
+let choice = ["", "", "", "", "", "", "", "", ""];
 let currentPlayer = "X";
 let running = false;
 
@@ -24,41 +26,58 @@ let running = false;
 const startGame = () => {
   boxes.forEach((box) => box.addEventListener("click", handleClickOnBox));
   restartButton.addEventListener("click", handleRestart);
-  //running = true;
+  running = true;
 };
-
 
 //handle click function- creates a function that will access each index position in the choice array
 const handleClickOnBox = (event) => {
   const id = event.target.id;
 
-  if (!choice[id]) {
+  if (!choice[id] && running) {
     choice[id] = currentPlayer;
+    //Updating the box with X first when the box has been clicked
     event.target.innerText = currentPlayer;
+    //Changing the player from X to O, once X has been played and updating the box
     currentPlayer = currentPlayer == "X" ? "O" : "X";
   }
+  checkWinner(event);
 };
-// Below code working and done with help of RH
-//   if(event.target.innerText == ""){
-//     event.target.innerText = currentPlayer
-//     currentPlayer = (currentPlayer == "X") ? "O" : "X"
-//   }
 
-// }
-//const updateBox
-// const swapPlayer
 // const checkWinner
+
+const checkWinner = () => {
+  // Loop through the winning sequences to see if any of them are true
+  for (let i = 0; i < winningSequence.length; i++) {
+    const sequence = winningSequence[i];
+    const [a, b, c] = sequence;
+    // Check if the choice array has X or O in each position of the winning sequence
+    if (choice[a] && choice[a] === choice[b] && choice[a] === choice[c]) {
+      // If X wins, display X in a message
+      if (choice[a] === "X") {
+        alert("X is the winner!");
+      }
+      // If O wins, display O in a message
+      else {
+        alert("O is the winner!");
+      }
+      // End the game
+      running = false;
+      break;
+    }
+  }
+};
 
 //Restart game function
 
 const handleRestart = () => {
-  choice = choice = [""] * 9;
+  choice = ["", "", "", "", "", "", "", "", ""];
 
   boxes.forEach((box) => {
     box.innerText = "";
   });
 
   currentPlayer = "X";
+  running = true;
 };
 
 startGame();

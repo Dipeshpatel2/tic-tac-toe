@@ -26,7 +26,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 110px;
+  font-size: 100px;
   cursor: pointer;
 }
 
@@ -39,9 +39,11 @@ body {
   font-size: 30px;
   cursor: pointer;
   margin: 30px;
+  transition: transform 0.2s ease-in-out;
 }
 
 #restart-button:hover {
   background-color: royalblue;
   color: gold;
+  transform: translatey(-5px);
 }
