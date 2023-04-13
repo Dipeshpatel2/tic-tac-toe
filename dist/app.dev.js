@@ -11,8 +11,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //Assign variables to
 var boxes = document.querySelectorAll(".box");
 var restartButton = document.querySelector("#restart-button");
-var xMoves = [];
-var oMoves = [];
 var winningSequence = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]; //This line of code creates an array of 9 placeholders. An array of empty strings
 
 var choice = ["", "", "", "", "", "", "", "", ""];
@@ -57,20 +55,19 @@ var checkWinner = function checkWinner() {
 
 
     if (choice[a] && choice[a] === choice[b] && choice[a] === choice[c]) {
-      // If X wins, display X in a message
       if (choice[a] === "X") {
         alert("X is the winner!");
-      } // If O wins, display O in a message
-      else {
-          alert("O is the winner!");
-        } // End the game
+      } else {
+        alert("O is the winner!");
+      } // End the game
 
 
       running = false;
       break;
     }
   }
-};
+}; //check if draw
+
 
 var checkDraw = function checkDraw() {
   if (!choice.includes("")) {

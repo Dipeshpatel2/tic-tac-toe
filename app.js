@@ -2,8 +2,6 @@
 const boxes = document.querySelectorAll(".box");
 const restartButton = document.querySelector("#restart-button");
 
-const xMoves = [];
-const oMoves = [];
 const winningSequence = [
   [0, 1, 2],
   [3, 4, 5],
@@ -21,7 +19,6 @@ let currentPlayer = "X";
 let running = false;
 
 //Functions that will be needed
-
 // const startingGame
 const startGame = () => {
   boxes.forEach((box) => box.addEventListener("click", handleClickOnBox));
@@ -45,7 +42,6 @@ const handleClickOnBox = (event) => {
 };
 
 // const checkWinner
-
 const checkWinner = () => {
   // Loop through the winning sequences to see if any of them are true
   for (let i = 0; i < winningSequence.length; i++) {
@@ -53,11 +49,9 @@ const checkWinner = () => {
     const [a, b, c] = sequence;
     // Check if the choice array has X or O in each position of the winning sequence
     if (choice[a] && choice[a] === choice[b] && choice[a] === choice[c]) {
-      // If X wins, display X in a message
       if (choice[a] === "X") {
         alert("X is the winner!");
       }
-      // If O wins, display O in a message
       else {
         alert("O is the winner!");
       }
@@ -67,7 +61,7 @@ const checkWinner = () => {
     }
   }
 };
-
+//check if draw
 const checkDraw = () => {
   if (!choice.includes("")) {
     alert("It's a draw!");
@@ -76,7 +70,6 @@ const checkDraw = () => {
 };
 
 //Restart game function
-
 const handleRestart = () => {
   choice = ["", "", "", "", "", "", "", "", ""];
 
