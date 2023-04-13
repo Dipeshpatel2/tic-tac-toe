@@ -41,6 +41,7 @@ const handleClickOnBox = (event) => {
     currentPlayer = currentPlayer == "X" ? "O" : "X";
   }
   checkWinner(event);
+  checkDraw()
 };
 
 // const checkWinner
@@ -64,6 +65,13 @@ const checkWinner = () => {
       running = false;
       break;
     }
+  }
+};
+
+const checkDraw = () => {
+  if (!choice.includes("")) {
+    alert("It's a draw!");
+    running = false;
   }
 };
 

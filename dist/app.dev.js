@@ -41,6 +41,7 @@ var handleClickOnBox = function handleClickOnBox(event) {
   }
 
   checkWinner(event);
+  checkDraw();
 }; // const checkWinner
 
 
@@ -68,6 +69,13 @@ var checkWinner = function checkWinner() {
       running = false;
       break;
     }
+  }
+};
+
+var checkDraw = function checkDraw() {
+  if (!choice.includes("")) {
+    alert("It's a draw!");
+    running = false;
   }
 }; //Restart game function
 
